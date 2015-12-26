@@ -7,8 +7,23 @@ var Students = Backbone.Collection.extend({
     this.populateCohort();
   },
   populateCohort: function(callback) {
-  	
-    // Use .fetch to populate your Students collection from the API
-    // The method incredibly useful (and flexible!) – you can even pass AJAX success/error/complete handlers to it!
+  	var that = this;
+  	this.fetch({
+  		reset: true,
+  		success:function(result){
+  			if(callback){
+  				callback(result);	
+  			}
+  			console.log('loading');
+  			that.trigger('loading');
+  		}, 
+  		error: function(error){
+  			console.log('populateCohort error', error);
+  		},
+  		complete: function(result){
+  			console.log('complete');
+  			that.trigger('complete');
+  		}
+  	});
   }
 });
