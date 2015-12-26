@@ -11,7 +11,7 @@ var AppView = Backbone.View.extend({
     }.bind(this));
 
     options.router.on('route:student', function(id) {
-      console.log('Student Routing', id);
+      this.renderStudentPage(id)
     }.bind(this));
 
     options.router.on('route:cohort', function(num) {
@@ -26,7 +26,7 @@ var AppView = Backbone.View.extend({
   },
 
   renderStudentPage: function(studentId){
-    $('#page-content-container').html(new LandingView().render());    
+    $('#page-content-container').html(new StudentProfileView({model: new Student({studentId: studentId})}).render());   // 
   },
 
   renderLanding: function() {

@@ -3,9 +3,22 @@ var StudentEntryView = Backbone.View.extend({
 
 	initialize: function(){
 		this.render();
+
 	},
 
-	template: _.template('<img src="<%= image %>"</img><h3><%= name %></h3><h4><%= nickname%></h4>'),
+	events: {
+		"mouseover": "hoverTrigger",
+		"mouseout": "hoverExitTrigger"
+	},
+
+	hoverTrigger: function(e){
+		this.model.hoverTrigger();
+	},
+	hoverExitTrigger: function(e){
+		this.model.hoverExitTrigger();
+	},
+
+	template: _.template('<img src="<%= image %>"</img><br><a href="#/student/<%=id %>"><%= name %></a>'),
 
 	render: function(){
 		return this.$el.html(this.template(this.model.attributes));

@@ -1,0 +1,5 @@
+var StudentProfileView = Backbone.View.extend({
+	initialize: function(){
+	t
+	}
+})

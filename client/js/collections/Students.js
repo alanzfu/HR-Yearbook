@@ -21,9 +21,11 @@ var Students = Backbone.Collection.extend({
   			console.log('populateCohort error', error);
   		},
   		complete: function(result){
-  			console.log('complete');
-  			that.trigger('complete');
+  			//console.log('complete');
   		}
+  	}).done(function(){
+  		console.log('done');
+  		that.trigger('complete');
   	});
   }
 });

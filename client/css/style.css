@@ -35,8 +35,8 @@ body {
 
 
 .navbar-logo {
-  width: 125px;
-  height: 125px;
+  width: 70px;
+  height: auto;
   float: left;
 }
 
@@ -124,6 +124,7 @@ body {
 
 .student-div {
   display: inline-block;
+  position: relative;
   margin: 10px;
   text-align: center;
 }
@@ -131,6 +132,16 @@ body {
 .student-div img{
   height: 200px;
   width: auto;
+}
+
+.extra-hover-info {
+  position: absolute;
+  padding: 10px;
+  top: -20px;
+  height: 50px;
+  background-color: black;
+  opacity: 0.5;
+  color: white;
 }
 
 

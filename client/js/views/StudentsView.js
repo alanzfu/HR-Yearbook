@@ -13,9 +13,9 @@ var StudentsView = Backbone.View.extend({
 
   render: function() {
 	return this.$el.html(this.collection.map(function(student){
-		return new StudentEntryView({model: student}).render().addClass('student-div');
+		var studentView = new StudentEntryView({model: student}).render().addClass('student-div').append(new ExtraStudentView({model: student}).render().addClass('extra-hover-info').hide());
+		return studentView;
 	}));
-  	//needs to create studentmodel views for all of the models within colleciton
   }
 
 });
