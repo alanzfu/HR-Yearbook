@@ -1,0 +1,23 @@
+{
+  "name": "hr-yearbook",
+  "homepage": "https://github.com/alanzfu/HR-Yearbook",
+  "authors": [
+    "Alan Fu <alanzfu@gmail.com>"
+  ],
+  "description": "yearbook for hr37",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.3",
+    "jquery": "~2.1.4"
+  }
+}
