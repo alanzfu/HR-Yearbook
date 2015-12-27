@@ -9,16 +9,19 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var path = require('path');;
+var path = require('path');
+var cors = require('cors');
 
 var router = require('./routers/router.js')
 
 var app = express();
+app.use(cors());
 
-var port = process.env.PORT || 3000;
+var port = 3000;
 
 // Any requests that hit a route other than /api will be served out of our client folder.
 app.use(express.static(path.join(__dirname, "../client")));
+
 // Any prefixed that hit the /api will be directed to our router.
 app.use('/api', router);
 

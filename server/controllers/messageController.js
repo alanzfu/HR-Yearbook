@@ -7,7 +7,7 @@ exports.create = function(message, callback) {
 };
 
 exports.find = function(query, callback) {
-
+	Message.find(query,callback)
 };
 
 exports.findByAuthor= function(author, callback) {

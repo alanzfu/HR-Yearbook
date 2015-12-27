@@ -7,11 +7,12 @@ var Wall = Backbone.Collection.extend({
 
 	populateWall: function(studentId){
 		console.log(studentId);
-		var wallEntryUrl = "" + studentId;
-		$.get(wallEntryUrl, function(results){
-			//should be a json of objects
-			//create models
-		})
+		// var wallEntryUrl = "http://www.google.com/" + studentId;
+		// $.get(wallEntryUrl, function(results){
+		// 	//should be a json of objects
+		// 	//create models
+		// 	//this.add({})
+		// });
 		//GET REQUEST TO MONGO-DB
 	}
 

@@ -4,7 +4,26 @@ var messageController = require('../controllers/messageController.js');
 
 router.route('/')
   .get(function(req, res) {
-    res.send('You hit ' + req.originalUrl + '! Extend this router so that it\'s more useful!')
+    console.log('get received');
+    res.send('get');
+	// messageController.find(req, function(err, result){
+ //  		if(err){
+ //  			console.log('get failed', err);
+ //  			return;
+ //  		}
+	// 	res.send('something with the results', result);
+	// })
+  })
+  .post(function(req, res){
+  	console.log('post received');
+  	res.send('post');
+  	// messageController.create(req, function(err, result){
+  	// 	if(err){
+  	// 		console.log('post failed', err);
+  	// 		return;
+  	// 	}
+  	// 	res.send('post success!')
+  	// })
   });
 
 module.exports = router;

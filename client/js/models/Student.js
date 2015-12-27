@@ -25,12 +25,16 @@ var Student = Backbone.Model.extend({
 
   populateProfile: function(options){
   	var that = this
-  	$.get(this.url, function(results){
-  		console.log(results);
-  		that.set('id', results[0].id);
-  		that.set('cohort', results[0].cohort);
-  		that.set('image', results[0].image);
-  		that.set('name', results[0].name);
+  	console.log(that.url);
+  	$.get(that.url, function(results){
+  		if(results[0].id !== ''){
+  			that.set('id', results[0].id);
+  			that.set('cohort', results[0].cohort);
+  			that.set('image', results[0].image);
+  			that.set('name', results[0].name);
+  			that.trigger('profile loaded');
+  		}
+  		
   	});
   	this.set('wall', new Wall(options));
   },
