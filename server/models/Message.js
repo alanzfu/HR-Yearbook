@@ -1,5 +1,6 @@
 // http://mongoosejs.com/docs/guide.html
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/');
 
 var messageSchema = new mongoose.Schema({
   author: String,
