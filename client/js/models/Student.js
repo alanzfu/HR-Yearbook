@@ -20,12 +20,11 @@ var Student = Backbone.Model.extend({
   	this.trigger('hovering');
   },
   hoverExitTrigger: function(){
-  	this.trigger('exit')
+  	this.trigger('exit');
   },
 
   populateProfile: function(options){
-  	var that = this
-  	console.log(that.url);
+  	var that = this;
   	$.get(that.url, function(results){
   		if(results[0].id !== ''){
   			that.set('id', results[0].id);

@@ -10,6 +10,7 @@ var MessageInputView = Backbone.View.extend({
 	},
 
 	submitMessage: function(){
+		console.log('submit message called');
 		var message = $('textarea').val();
 		$.post('http://127.0.0.1:3000/api', {
 			id : this.model.get('id'),

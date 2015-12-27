@@ -11,7 +11,7 @@ var WallView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$el.html('<button>Refresh Wall<button>')
+		this.$el.html('<button>Refresh Wall</button>')
 		return this.$el.append(this.collection.map(function(wallEntry){
 			return new WallEntryView({model: wallEntry});
 		}));
