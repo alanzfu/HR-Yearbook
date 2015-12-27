@@ -1,32 +1,45 @@
 var MessageInputView = Backbone.View.extend({
-	el: '<div>',
 
-	initialize: function(){
-		this.render();
-	},
+  tagName: 'input',
 
-	events:{
-		'click #post': 'submitMessage'
-	},
+  events: {
+    'keydown': 'keyAction',
+  },
 
-	submitMessage: function(){	
-		var message = $('textarea').val();
-		console.log('submit message called', message);
-		var messageContent = {
-			id : this.model.get('id'),
-			message: message
-		};
-		console.log(messageContent);
-		$.post('http://127.0.0.1:3000/api', messageContent);
-	},
+  initialize: function() {
+    this.render();
+  },
 
-	render: function(){
-		var html = [
-			'<textarea placeholder="What\'s up?"></textarea>',
-			'<button id="post">Post</button>'
-		].join('');
-		return this.$el.html(html);
-	}
+  render: function() {
+    this.resetInput();
+    return this;
+  },
 
+  keyAction: function(e) {
+  	console.log('anything');
+    var isEnterKey = (e.which === 13);
 
-})
+    if(isEnterKey) {
+      var message = $('textarea').val();
+      var messageContent = {
+        id : this.model.get('id'),
+        message: message
+      };
+      $.post('http://127.0.0.1:3000/api', messageContent);
+      this.resetInput();
+    }
+
+  },
+
+  resetInput: function() {
+    this.$el.attr({
+      placeholder: 'What\'s up?'
+    });
+    this.clearInput();
+  },
+
+  clearInput: function() {
+    this.$el.val('');
+  }
+
+});
