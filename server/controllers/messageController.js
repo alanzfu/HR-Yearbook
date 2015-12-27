@@ -3,7 +3,7 @@
 var Message = require('../models/Message.js');
 
 exports.create = function(message, callback) {
-  Message.create(message, callback);
+  return Message.create(message, callback);
 };
 
 exports.find = function(query, callback) {
