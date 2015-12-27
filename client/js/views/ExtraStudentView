@@ -1,5 +1,0 @@
-var ExtraStudentView = Backbone.View.Extend({
-	initialize: function(){
-		this.model.on('hovering');
-	}
-});

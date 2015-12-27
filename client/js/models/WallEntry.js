@@ -1,6 +1,5 @@
 var WallEntry = Backbone.Model.extend({
 	initialize: function(){
-
 	},
 
 	defaults: {

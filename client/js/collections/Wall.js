@@ -7,13 +7,19 @@ var Wall = Backbone.Collection.extend({
 
 	populateWall: function(studentId){
 		console.log(studentId);
-		// var wallEntryUrl = "http://www.google.com/" + studentId;
-		// $.get(wallEntryUrl, function(results){
-		// 	//should be a json of objects
-		// 	//create models
-		// 	//this.add({})
-		// });
-		//GET REQUEST TO MONGO-DB
+
+		$.get("http://127.0.0.1:3000/api", function(results){
+			console.log(results);
+			var filteredMessages = _.filter(results, function(message){
+				if(message.id === studentId) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+			this.reset();
+			this.add(filteredMessages);
+		}.bind(this));
 	}
 
 });

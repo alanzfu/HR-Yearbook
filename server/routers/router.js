@@ -6,7 +6,6 @@ var Message = require('../models/Message.js');
 router.route('/')
   .get(function(req, res) {
     console.log('get received');
-    //in this message controller, i need to find out which page sent it.....
     // or i can just give all of them back and filter on client side
 	Message.find({}, function(err, result){
   		if(err){
@@ -14,7 +13,7 @@ router.route('/')
   			return;
   		}
   		console.log('queried and created',result);
-		res.send('something with the results', result);
+		res.send(result);
 	})
   })
   .post(function(req, res){
