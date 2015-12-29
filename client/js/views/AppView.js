@@ -26,7 +26,7 @@ var AppView = Backbone.View.extend({
   },
 
   renderStudentPage: function(studentId){
-    $('#page-content-container').html(new StudentProfileView({model: new Student({studentId: studentId})}).$el);
+    $('#page-content-container').html(new StudentProfileView({model: new Student({studentId: studentId})}).render());
   },
 
   renderLanding: function() {
